@@ -28,6 +28,7 @@ const ChatHeader = () => {
                 </div>
             </div>
 
+
             {/* Close Button */}
             <button onClick={()=> setSelectedUser(null)}>
                 <X/>
