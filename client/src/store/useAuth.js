@@ -1,8 +1,6 @@
 import {create} from 'zustand'
 import axiosInstance from '../../lib/axios.js';
 import toast, { ToastBar } from 'react-hot-toast';
-import { LogOut } from 'lucide-react';
-import axios from 'axios';
 import { io } from "socket.io-client"
 
 const BASE_URL="http://localhost:5000"

@@ -30,7 +30,7 @@ export const useChat=create((set,get)=>({
             set({ messages: res.data });
         } catch (error) {
             console.log(error)
-            toast.error(error.response.data.message || "No data");
+            toast.error(error.response.data.message);
         } finally {
             set({ isMessagesLoading: false });
         }
