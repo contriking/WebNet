@@ -4,7 +4,6 @@ import MessageInput from './MessageInput';
 import ChatHeader from './ChatHeader';
 import MessageSkeleton from '../components/skeletons/MessageSkeleton'
 import { useAuth } from '../store/useAuth';
-import avatar from '../../public/avatar.png';
 import { formatMessageTime } from '../../lib/utils';
 
 const ChatContainer = () => {
@@ -51,7 +50,7 @@ const ChatContainer = () => {
               <div className="chat-image avatar">
                 <div className='size-10 rounded-full border'>
                   <img 
-                    src={message.senderId === authUser._id ? authUser.profilePic || avatar : selectedUser.profilePic || avatar} 
+                    src={message.senderId === authUser._id ? authUser.profilePic || avatar : selectedUser.profilePic || '/avatar.png'} 
                     alt="profile pic" 
                   />
                 </div>

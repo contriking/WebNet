@@ -3,7 +3,7 @@ import { useChat } from '../store/useChat'
 import { useAuth } from '../store/useAuth'
 import SidebarSkeleton from '../components/skeletons/SidebarSkeleton'
 import { Users } from 'lucide-react'
-import avatar from '../../public/avatar.png'
+
 
 const Sidebar = () => {
 
@@ -27,7 +27,6 @@ const Sidebar = () => {
                     <Users className='size-6'/>
                     <span className='font-medium hidden lg:block'>Contacts</span>
                 </div>
-                {/* TODO: online filter toggle */}
 
                 <div className='mt-3 hidden lg:flex items-center gap-2'>
                     <label className='cursor-pointer flex items-center gap-2'>
@@ -56,7 +55,7 @@ const Sidebar = () => {
 
                         <div className="relative mx-auto lg:mx-0">
                             <img 
-                                src={user.profilePic || avatar} 
+                                src={user.profilePic || '/avatar.png'} 
                                 alt={user.name} 
                                 className='size-12 object-cover rounded-full'
                             />
