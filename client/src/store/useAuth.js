@@ -20,7 +20,7 @@ export const useAuth= create((set,get)=>({
             set({authUser:res.data});
             get().connectSocket();
         } catch (error) {
-            console.log("Error in check auth",error.message)
+            // console.log("Error in check auth",error.message)
             set({authUser:null});
         } finally {
             set({ isCheckingAuth: false });
@@ -36,7 +36,7 @@ export const useAuth= create((set,get)=>({
             toast.success("Account created successfully.");
             get().connectSocket();
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             toast.error(error.response.data.message);
         }
         finally{
@@ -81,7 +81,7 @@ export const useAuth= create((set,get)=>({
             }
             toast.success("Profile updated successfully.");
         } catch (error) {
-            console.log(error);
+            // console.log(error);
             toast.error(error.response.data.message);
         }
         finally{
