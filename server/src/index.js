@@ -6,10 +6,12 @@ const messageRoute= require('./routes/message.js');
 const cookieParser=require('cookie-parser');
 const cors=require('cors');
 const { app, server} = require('./lib/socket.js');
+const path=require('path')
+
 
 const PORT=process.env.PORT;
 // const app=express();
-
+const dirname=path.resolve();
 
 app.use(express.urlencoded({limit: '10mb',extended: true}));
 app.use(express.json({ limit: '10mb'}));
@@ -21,6 +23,15 @@ app.use(cors({
 
 app.use('/api/auth',authRoute);
 app.use('/api/messages',messageRoute);
+
+if(process.env.NODE_ENV==='production'){
+    app.use(express.static(path.join(__dirname,"../client/dist")));
+
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"../client","dist","index.html"))
+    })
+
+}
 
 server.listen(PORT || 5000,()=>{
     connectDB().then(()=>{
