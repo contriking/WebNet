@@ -20,7 +20,6 @@ export const useAuth= create((set,get)=>({
             set({authUser:res.data});
             get().connectSocket();
         } catch (error) {
-            // console.log("Error in check auth",error.message)
             set({authUser:null});
         } finally {
             set({ isCheckingAuth: false });
@@ -29,14 +28,12 @@ export const useAuth= create((set,get)=>({
 
     signup: async (data)=>{
         set({ isSigningUp : true });
-        // console.log(data)
         try {
             const res=await axiosInstance.post("/auth/signup",data);
             set({authUser: res.data});
             toast.success("Account created successfully.");
             get().connectSocket();
         } catch (error) {
-            // console.log(error);
             toast.error(error.response.data.message);
         }
         finally{
@@ -71,7 +68,6 @@ export const useAuth= create((set,get)=>({
     },
 
     updateProfile: async(data)=>{
-        // console.log("client called the update profile function.")
         set({ isUpdatingProfile: true });
         try {
             
@@ -81,7 +77,6 @@ export const useAuth= create((set,get)=>({
             }
             toast.success("Profile updated successfully.");
         } catch (error) {
-            // console.log(error);
             toast.error(error.response.data.message);
         }
         finally{

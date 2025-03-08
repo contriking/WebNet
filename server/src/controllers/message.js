@@ -10,7 +10,6 @@ const getUsers=async(req,res)=>{
         const findUsers=await User.find({_id: {$ne: loggedUserId}}).select('-password');
         res.status(200).json(findUsers);
     } catch (error) {
-        console.log("Error in get users:",error.message);
         res.status(500).json({error : "Internal server error."});
     }
 }
@@ -30,7 +29,6 @@ const getMessages=async(req,res)=>{
         res.status(200).json(message);
 
     } catch (error) {
-        console.log("Error in get Messages controller: ",error.message);
         res.status(500).json({error: "Internal server error."});
     }
 }
@@ -65,7 +63,6 @@ const sendMessage=async(req,res)=>{
         res.status(201).json(newMessage);
 
     } catch (error) {
-        console.log("Error in sending message controller: ",error.message);
         res.status(500).json({error: "Interval server error."})
     }
 }

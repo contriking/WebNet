@@ -42,7 +42,6 @@ const signup=async (req,res)=>{
             profilePic : newUser.profilePic,
         });
     } catch (error) {
-        console.log("Error in signup controller",error.message);
         res.status(500).json({message: "Internal server error."})
     }
 }
@@ -71,7 +70,6 @@ const login=async(req,res)=>{
             createdAt: user.createdAt,
         })
     } catch (error) {
-        console.log("Error in login controller.",error.message);
         return res.status(500).json({message: "Internal server Error."})
     }
 }
@@ -82,7 +80,6 @@ const logout=(req,res)=>{
         res.cookie("jwt","",{maxAge:0});
         res.status(200).json({message: "Logged out successfully."});
     } catch (error) {
-        console.log("Error in logout controller.",error.message);
         return res.status(500).json({message: "Internal server error."})
     }
 }
@@ -115,7 +112,6 @@ const updateProfile=async (req,res)=>{
 
         res.status(200).json(updatedUser);
     } catch (error) {
-        console.log("Error in upload profile:",error);
         res.status(500).json({message: "Internal server error."});
     }
 }
@@ -128,7 +124,6 @@ const checkAuth = async (req, res) => {
         return res.status(200).json(user);
 
     } catch (error) {
-        console.log("Error in checkAuth controller", error.message);
         res.status(500).json({ message: "Internal Server Error" });
     }
 };

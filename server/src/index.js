@@ -24,14 +24,12 @@ app.use(cors({
 app.use('/api/auth',authRoute);
 app.use('/api/messages',messageRoute);
 
-if(process.env.NODE_ENV==='production'){
-    app.use(express.static(path.join(__dirname,"../client/dist")));
+app.use(express.static(path.join(__dirname,"../../client/dist")));
 
-    app.get("*",(req,res)=>{
-        res.sendFile(path.join(__dirname,"../client","dist","index.html"))
-    })
+app.get("*",(req,res)=>{
+    res.sendFile(path.join(__dirname,"../../client","dist","index.html"))
+})
 
-}
 
 server.listen(PORT || 5000,()=>{
     connectDB().then(()=>{
