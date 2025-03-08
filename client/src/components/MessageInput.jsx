@@ -51,7 +51,7 @@ const MessageInput = () => {
             }
 
         } catch (error) {
-            console.log("Failed to send message.")
+            toast.error("Could not send message");
         }
     }
 
