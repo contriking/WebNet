@@ -24,6 +24,10 @@ app.use(cors({
 app.use('/api/auth',authRoute);
 app.use('/api/messages',messageRoute);
 
+app.get('/api/health',(req,res)=>{
+    res.json({status: "online",provider: "WebNet",});
+});
+
 app.use(express.static(path.join(__dirname,"../../client/dist")));
 
 app.get("*",(req,res)=>{
