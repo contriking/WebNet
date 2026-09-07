@@ -144,7 +144,7 @@ const Signup = () => {
 
       {/* right side */}
       <AuthImagePattern
-        title="Prashant Sahu"
+        title="Get Started"
         subtitle= "Connect with friends, share moments, and stay in touch with your loved ones."
       />
     </div>
